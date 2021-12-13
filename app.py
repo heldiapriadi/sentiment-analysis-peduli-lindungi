@@ -6,6 +6,7 @@ import numpy as np
 import os
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = './static/uploads/'
 model = pickle.load(open('model.pkl','rb'))
 
 
@@ -16,12 +17,9 @@ def index():
         new_review = re.sub('[^a-zA-Z]', ' ', new_review)
         new_review = new_review.lower()
         new_review = new_review.split()
-        new_X_test = cv.transform(new_review).toarray()
-        pred = model.predict(new_X_test)
+        pred = model.predict(new_review)
         return render_template('index.html', prediction=pred)
     return render_template('index.html')
-
-    
 
 
 if __name__ == '__main__':
