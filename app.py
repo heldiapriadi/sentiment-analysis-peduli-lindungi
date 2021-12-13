@@ -18,7 +18,7 @@ def index():
         new_review = new_review.lower()
         new_review = new_review.split()
         pred = model.predict(new_review)
-        return render_template('test.html', prediction=pred)
+        return render_template('index.html', prediction=pred)
     return render_template('index.html')
 
     
