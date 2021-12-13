@@ -6,7 +6,6 @@ import numpy as np
 import os
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './static/uploads/'
 model = pickle.load(open('model.pkl','rb'))
 
 
@@ -20,6 +19,7 @@ def index():
         new_X_test = cv.transform(new_review).toarray()
         pred = model.predict(new_X_test)
         return render_template('index.html', prediction=pred)
+    return render_template('index.html')
 
     
 
