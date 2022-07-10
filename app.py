@@ -17,8 +17,9 @@ def index():
         new_review = request.form["komentar"]
         new_review = new_review.lower()
         new_review = new_review.split()
-        print(new_review)
-        pred = (model.predict(new_review))[0]
+        array_new_review = [new_review]
+        print(array_new_review)
+        pred = (model.predict(array_new_review))[0]
         print(pred)
         return render_template("index.html", prediction=pred)
     return render_template("index.html")
