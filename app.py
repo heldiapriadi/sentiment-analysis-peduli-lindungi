@@ -8,21 +8,19 @@ import pickle
 
 app = Flask(__name__)
 # app.config['UPLOAD_FOLDER'] = './static/uploads/'
-model = pickle.load(open('model.pkl','rb'), encoding='bytes')
+# model = pickle.load(open('model.pkl','rb'), encoding='bytes')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == 'POST':
-        new_review = request.form['komentar']
-        new_review = new_review.lower()
-        new_review = new_review.split()
-        pred = model.predict(new_review)
-        return render_template('index.html', prediction=pred)
-    return render_template('index.html')
-
-    
+    # if request.method == 'POST':
+    #     new_review = request.form['komentar']
+    #     new_review = new_review.lower()
+    #     new_review = new_review.split()
+    #     pred = model.predict(new_review)
+    #     return render_template('index.html', prediction=pred)
+    return render_template("index.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
