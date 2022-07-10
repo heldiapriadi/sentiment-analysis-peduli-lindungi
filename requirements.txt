@@ -3,3 +3,6 @@ tensorflow-cpu
 gunicorn
 pillow
 numpy
+sklearn
+jcopml
+pickle
