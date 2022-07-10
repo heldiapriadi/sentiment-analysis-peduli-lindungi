@@ -19,7 +19,7 @@ def index():
         new_review = new_review.split()
         array_new_review = [new_review]
         print(array_new_review)
-        pred = (model.predict(array_new_review))[0]
+        pred = model.predict(array_new_review)
         print(pred)
         return render_template("index.html", prediction=pred)
     return render_template("index.html")
